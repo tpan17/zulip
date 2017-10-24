@@ -51,7 +51,16 @@
                 <label for="emoji_alt_code" class="inline-block">{{t 'Display emoji reactions as text (:heart: instead of <img alt=":heart:" class="emoji" src="/static/generated/emoji/images/emoji/unicode/2764.png" title=":heart:"/>)' }}</label>
             </div>
 
-            
+            <div class="input-group">
+                <label class="checkbox">
+                    <input type="checkbox" name="dark_mode" id="dark_mode"
+                    {{#if page_params.dark_mode}}
+                      checked="checked"
+                    {{/if}} />
+                    <span></span>
+                </label>
+                <label for="dark_mode" class="inline-block">{{t "Dark mode" }}</label>
+            </div>
         </div>
 
         <h3 class="light">{{t "Time settings" }}</h3>

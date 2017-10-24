@@ -120,29 +120,29 @@ exports.set_up = function () {
     });
 
 
-    // $("#dark_mode").change(function () {
-    //     var dark_mode = this.checked;
-    //     var data = {};
-    //     data.dark_mode = JSON.stringify(dark_mode);
-    //     var context = {};
-    //     if (data.dark_mode === "true") {
-    //         context.enabled_or_disabled = i18n.t('Enabled');
-    //     } else {
-    //         context.enabled_or_disabled = i18n.t('Disabled');
-    //     }
+    $("#dark_mode").change(function () {
+        var dark_mode = this.checked;
+        var data = {};
+        data.dark_mode = JSON.stringify(dark_mode);
+        var context = {};
+        if (data.dark_mode === "true") {
+            context.enabled_or_disabled = i18n.t('Enabled');
+        } else {
+            context.enabled_or_disabled = i18n.t('Disabled');
+        }
 
-    //     channel.patch({
-    //         url: '/json/settings/display',
-    //         data: data,
-    //         success: function () {
-    //             ui_report.success(i18n.t("Dark mode __enabled_or_disabled__!", context),
-    //                               $('#display-settings-status').expectOne());
-    //         },
-    //         error: function (xhr) {
-    //             ui_report.error(i18n.t("Error updating dark mode setting"), xhr, $('#display-settings-status').expectOne());
-    //         },
-    //     });
-    // });
+        channel.patch({
+            url: '/json/settings/display',
+            data: data,
+            success: function () {
+                ui_report.success(i18n.t("Dark mode __enabled_or_disabled__!", context),
+                                  $('#display-settings-status').expectOne());
+            },
+            error: function (xhr) {
+                ui_report.error(i18n.t("Error updating dark mode setting"), xhr, $('#display-settings-status').expectOne());
+            },
+        });
+    });
 
     $("#twenty_four_hour_time").change(function () {
         var data = {};
@@ -208,7 +208,7 @@ function _update_page() {
     $("#twenty_four_hour_time").prop('checked', page_params.twenty_four_hour_time);
     $("#left_side_userlist").prop('checked', page_params.left_side_userlist);
     $("#emoji_alt_code").prop('checked', page_params.emoji_alt_code);
-    // $("#dark_mode").prop('checked', page_params.dark_mode);
+    $("#dark_mode").prop('checked', page_params.dark_mode);
     $("#default_language_name").text(page_params.default_language_name);
 }
 
