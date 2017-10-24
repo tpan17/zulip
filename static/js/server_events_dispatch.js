@@ -267,7 +267,6 @@ exports.dispatch_normal_event = function dispatch_normal_event(event) {
 
     case 'update_display_settings':
         var user_display_settings = [
-            'dark_mode',
             'default_language',
             'emoji_alt_code',
             'emojiset',
@@ -296,11 +295,7 @@ exports.dispatch_normal_event = function dispatch_normal_event(event) {
                 message_list.narrowed.rerender();
             }
         }
-        if (event.setting_name === 'dark_mode') {
-            // TODO: Make this change the view immediately rather
-            // than requiring a reload or page resize.
-        }
-        
+
         if (event.setting_name === 'left_side_userlist') {
             // TODO: Make this change the view immediately rather
             // than requiring a reload or page resize.
